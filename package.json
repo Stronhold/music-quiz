@@ -1,5 +1,5 @@
 {
-  "name": "music-quizz",
+  "name": "music-quiz",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,19 +10,20 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-selector-bem-pattern": "^2.1.0",
     "typescript": "~3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "test:watch": "react-scripts test --watch",
+    "test:husky": "react-scripts test --watchAll=false",
+    "lint:css": "npx stylelint \"**/*.scss\""
   },
   "browserslist": {
     "production": [
@@ -35,5 +36,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.4.0",
+    "stylelint-order": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test:husky && npm run lint:css",
+      "pre-push": "npm run test:husky && npm run lint:css"
+    }
   }
 }

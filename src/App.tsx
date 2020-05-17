@@ -1,12 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
-function App() {
+/**
+ * Get base component
+ * @return {component} base component
+ */
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="app">
+      <header className="app__header">
+        <img src={logo} className="app__logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -21,6 +25,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
